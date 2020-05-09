@@ -1,5 +1,5 @@
 import sys
-from tkinter import *
+from Tkinter import *
 import time
 
 def tick():
