@@ -1,6 +1,6 @@
 import sys
-from tkbuttons import *
 import time
+from tkinter import *
 
 def tick():
     time_string = time.strftime("%a, %b %d")
