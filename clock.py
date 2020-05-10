@@ -3,12 +3,11 @@ import time
 from tkinter import *
 
 def tick():
-    time_string = time.strftime("%a, %b %d")
-    date_string = time.strftime("%I:%M:%S")
+    time_string = time.strftime("%I:%M:%S")
+    date_string = time.strftime("%a, %b %d")
     clock.config(text=time_string)
     date.config(text=date_string)
     clock.after(200,tick)
-    date.after(200,tick)
 
 root = Tk()
 # frames
