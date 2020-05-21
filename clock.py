@@ -9,12 +9,13 @@ def tick():
     date.config(text=date_string)
     clock.after(200,tick)
 
-root = Tk()
-root.attributes('-fullscreen', True)
+gui = Tk()
+gui.attributes('-fullscreen', True)
+gui['bg']='gray'
 # frames
-topFrame = Frame(root, bg="gray")
+topFrame = Frame(gui)
 topFrame.pack(side=TOP)
-bottomFrame = Frame(root, bg="gray")
+bottomFrame = Frame(gui)
 bottomFrame.pack(side=BOTTOM)
 
 clock = Label(topFrame, font = ("times", 40, "bold"), bg="gray")
@@ -22,4 +23,4 @@ date = Label(bottomFrame, font = ("times", 40, "bold"), bg="gray")
 clock.grid(row=0, column=1)
 date.grid(row=0, column=1)
 tick()
-root.mainloop()
+gui.mainloop()
