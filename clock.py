@@ -10,6 +10,7 @@ def tick():
     clock.after(200,tick)
 
 root = Tk()
+root.attributes('-fullscreen', True)
 # frames
 topFrame = Frame(root, bg="gray")
 topFrame.pack(side=TOP)
