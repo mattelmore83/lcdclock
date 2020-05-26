@@ -27,7 +27,7 @@ def getWeather(location):
 
 def tick():
     time_string = time.strftime("%I:%M:%S")
-    date_string = time.strftime("%a, %b %d")
+    date_string = time.strftime("%a %b %d")
     datetime_string = date_string + ', ' + time_string
     weatherData = getWeather('Redstone Arsenal,US')
     weather_string = ('Current Conditions:\n' +
