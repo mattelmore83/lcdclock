@@ -28,7 +28,7 @@ def getWeather(location):
 def tick():
     time_string = time.strftime("%I:%M:%S")
     date_string = time.strftime("%a, %b %d")
-    datetime_string = date_string + '   ' + time_string
+    datetime_string = date_string + ', ' + time_string
     weatherData = getWeather('Redstone Arsenal,US')
     weather_string = ('Current Conditions:\n' +
                       'Temperature: ' + str(round(weatherData[0]['temp'])) + u'\N{DEGREE SIGN}' + '\n' +
@@ -49,7 +49,7 @@ clockFrame.pack(side=TOP)
 weatherFrame = Frame(gui)
 weatherFrame.pack()
 
-clock = Label(clockFrame, font = ("times", 40, "bold"), bg="gray")
+clock = Label(clockFrame, font = ("times", 32, "bold"), bg="gray")
 weather = Label(weatherFrame, font = ("times", 22, "bold"), bg="gray")
 clock.grid(row=0, column=1)
 weather.grid(row=0, column=1)
