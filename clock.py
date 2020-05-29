@@ -40,22 +40,23 @@ def tick():
     weather.config(text=weather_string)
     clock.after(200,tick)
 
-gui = Tk()
-gui.attributes('-fullscreen', True)
-gui['bg']='gray'
-# frames
-clockFrame = Frame(gui)
-clockFrame.pack(side=TOP)
-weatherFrame = Frame(gui)
-weatherFrame.pack()
 
-clock = Label(clockFrame, font = ("times", 32, "bold"), bg="gray")
-weather = Label(weatherFrame, font = ("times", 22, "bold"), bg="gray")
-clock.grid(row=0, column=1)
-weather.grid(row=0, column=1)
-tick()
-gui.mainloop()
+while True:
+    try:
+        gui = Tk()
+        gui.attributes('-fullscreen', True)
+        gui['bg'] = 'gray'
+        # frames
+        clockFrame = Frame(gui)
+        clockFrame.pack(side=TOP)
+        weatherFrame = Frame(gui)
+        weatherFrame.pack()
 
-
-
-print(weather_string)
+        clock = Label(clockFrame, font=("times", 32, "bold"), bg="gray")
+        weather = Label(weatherFrame, font=("times", 22, "bold"), bg="gray")
+        clock.grid(row=0, column=1)
+        weather.grid(row=0, column=1)
+        tick()
+        gui.mainloop()
+    except Exception:
+        logger.error("Fatal error in main loop", exc_info=True)
