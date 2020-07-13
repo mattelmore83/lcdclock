@@ -15,14 +15,15 @@ def convertTuple(tup):
 def getWeather(location):
     apikey = 'ace4a3f381475ee99d7502307c10a6e0'
     owm = pyowm.OWM(apikey)
-    observation = owm.weather_at_place(location)
-    w = observation.get_weather()
-    temp = w.get_temperature('fahrenheit')
-    humidity = w.get_humidity()
-    wind = w.get_wind()
-    status = w.get_status()
-    sunrise = datetime.datetime.fromtimestamp(int(w._sunrise_time)).strftime('%I:%M')
-    sunset = datetime.datetime.fromtimestamp(int(w._sunset_time)).strftime('%I:%M')
+    mgr = owm.weather_manager()
+    observation = mgr.weather_at_place(location)
+    w = observation.weather
+    temp = w.temperature('fahrenheit')
+    humidity = w.humidity
+    wind = w.wind()
+    status = w.detailed_status
+    sunrise = datetime.datetime.fromtimestamp(int(w.sunrise_time())).strftime('%I:%M')
+    sunset = datetime.datetime.fromtimestamp(int(w.sunset_time())).strftime('%I:%M')
     return temp,humidity,wind,status,sunrise,sunset
 
 def tick():
